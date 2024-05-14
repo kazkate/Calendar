@@ -1,0 +1,58 @@
+div {
+    text-align: center;
+    padding: 2%;
+}
+.content {
+    width: 40%;
+    margin: 1% auto;
+}
+.participantContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1%;
+}
+.minus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttonMinus {
+    width: 2.25rem;
+}
+button {
+    /* width: 100px; */
+    margin: 2% auto;
+    padding: 2% 4%;
+    background-color: #f0c9f4;
+    border-radius: 15px;
+    border: 0px;
+}
+form {
+    box-shadow: 0px 2px 8px rgb(231, 207, 237);
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2% auto;
+    padding: 2% 0;
+    font-size: 1.5rem;
+}
+.fill {
+    width: 100%;
+}
+label {
+    margin-right: 10px;
+    text-align: end;
+}
+input {
+    width: 40%;
+}
+
+p {
+    font-size: 30px;
+    margin-left: 20%;
+}
+.warning {
+    color: red;
+}

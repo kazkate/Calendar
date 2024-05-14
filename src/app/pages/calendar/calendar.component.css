@@ -1,0 +1,102 @@
+button {
+    display: block;
+    padding: 1%;
+    background-color: #f0c9f4;
+    border-radius: 15px;
+    border: 0px;
+    margin: 2% auto;
+    font-size: 1rem;
+}
+.butDelUp {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4%;
+}
+.butDelUpWhite {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4%;
+    background-color: white;
+    border: 0.1rem solid rgb(231, 207, 237);
+}
+div {
+    margin: 2% auto;
+}
+.show {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.buttoncol {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2% auto;
+    padding: 2%;
+    border-left: 0.1rem solid rgb(231, 207, 237);
+    width: 25%;
+}
+.event {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0px 2px 8px rgb(231, 207, 237);
+    margin: 2% auto;
+    margin-bottom: 0;
+    width: 55%;
+    padding: 2%;
+}
+.eventContent {
+    margin: 2%;
+    width: 70%;
+}
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0%;
+}
+h3,
+h4 {
+    font-size: 1.25rem;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.calendarContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    margin: 0%;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.dayRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0%;
+    justify-content: center;
+}
+.plus {
+    margin: 1% 2%;
+    font-size: 1.5rem;
+}
+.rowRight {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0%;
+    padding-right: 2%;
+    width: 50%;
+}
+.rowContent {
+    margin-left: 0%;
+}
+.participant {
+    padding: auto;
+}

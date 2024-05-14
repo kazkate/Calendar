@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #f0c9f4;
+    width: 80%;
+    border-radius: 15px;
+    margin: 2% auto;
+    padding: 1%;
+}
+a {
+    margin-left: 2px;
+    margin-right: 2px;
+    font-size: 30px;
+    font-family: "Times New Roman", Times, serif;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-align: center;
+}
+a:visited {
+    color: black;
+}
+a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}

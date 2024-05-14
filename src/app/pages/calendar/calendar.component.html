@@ -1,0 +1,109 @@
+<div class="row">
+    <button (click)="ngOnInit()">Все события</button>
+    <button (click)="eventsFuture()">Предстоящие</button>
+    <button (click)="eventsPast()">Прошедшие</button>
+</div>
+<div *ngFor="let events of myCalendar" class="calendarContent">
+    <div class="dayRow">
+        <h2 (click)="showEvents($any(events.date))">
+            {{ events.date | date : "fullDate" }}
+        </h2>
+        <!-- <button class="plus" (click)="goAdd()">+</button> -->
+    </div>
+
+    <div *ngIf="eventsDate == events.date" class="show">
+        <div *ngFor="let event of events.events">
+            <div class="event">
+                <div class="eventContent">
+                    <h3>
+                        {{ event.title }}
+                    </h3>
+                    <p>Время: {{ event.date | date : "shortTime" }}</p>
+                    <p>Место: {{ event.place }}</p>
+                    <h4>Участники:</h4>
+                    <div class="participant">
+                        <div *ngFor="let participant of event.participants">
+                            <div class="row">
+                                <div class="rowContent">
+                                    {{ participant.name }}:
+                                    {{ participant.role }}
+                                </div>
+                                <div class="rowRight">
+                                    <button
+                                        class="butDelUpWhite"
+                                        (click)="
+                                            updateParticipant(
+                                                events.date,
+                                                event.id,
+                                                participant.id
+                                            )
+                                        "
+                                    >
+                                        Изменть
+                                    </button>
+                                    <button
+                                        class="butDelUpWhite"
+                                        (click)="
+                                            deleteParticipant(
+                                                events.date,
+                                                event.id,
+                                                participant.id
+                                            )
+                                        "
+                                    >
+                                        Удалить
+                                    </button>
+                                </div>
+                            </div>
+                            <app-update-participant
+                                [participant]="participant_"
+                                (onClickUpParticipant)="
+                                    catchUpdate($any($event))
+                                "
+                                *ngIf="
+                                    upId == participant.id &&
+                                    idEvent == event.id &&
+                                    eventDate == events.date
+                                "
+                            >
+                            </app-update-participant>
+                        </div>
+                        <button (click)="addParticipant(events.date, event.id)">
+                            Добавить участника
+                        </button>
+                        <app-add-participant
+                            [addId]="addId"
+                            (onClickAddParticipant)="
+                                catchAddParticipant($any($event))
+                            "
+                            *ngIf="
+                                addIdEvent == event.id &&
+                                addEventDate == events.date
+                            "
+                        ></app-add-participant>
+                    </div>
+                </div>
+                <div class="buttoncol">
+                    <button
+                        class="butDelUp"
+                        (click)="updateEvent(events.date, event.id)"
+                    >
+                        Изменить
+                    </button>
+                    <button
+                        class="butDelUp"
+                        (click)="deleteEvent(events.date, event.id)"
+                    >
+                        Удалить
+                    </button>
+                </div>
+            </div>
+            <app-update-event
+                [myEvent]="eventUp_"
+                (onClickUpEvent)="catchUpdateEvent($any($event))"
+                *ngIf="idUpEvent == event.id && eventUpDate == events.date"
+            ></app-update-event>
+        </div>
+    </div>
+    <hr />
+</div>

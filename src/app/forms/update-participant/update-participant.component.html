@@ -1,0 +1,34 @@
+<button class="fill" (click)="fill()">Заполнить поля</button>
+<form [formGroup]="participantForm" (ngSubmit)="onSubmit()">
+    <div>
+        <div>
+            <label>Участник: </label>
+            <input name="name" formControlName="name" required />
+        </div>
+        <div
+            class="warning"
+            *ngIf="
+                participantForm.controls['name'].invalid &&
+                participantForm.controls['name'].touched
+            "
+        >
+            Имя обязательно!
+        </div>
+        <div>
+            <label>Роль: </label>
+            <input name="role" formControlName="role" />
+        </div>
+        <div
+            class="warning"
+            *ngIf="
+                participantForm.controls['role'].invalid &&
+                participantForm.controls['role'].touched
+            "
+        >
+            Роль обязательна!
+        </div>
+    </div>
+    <button type="submit" [disabled]="participantForm.invalid">
+        Сохранить!
+    </button>
+</form>

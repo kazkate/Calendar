@@ -1,0 +1,87 @@
+<div class="content">
+    <button class="fill" (click)="fill()">Заполнить поля</button>
+    <form [formGroup]="updateEventForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label>Название: </label>
+            <input name="title" formControlName="title" required />
+        </div>
+        <div
+            class="warning"
+            *ngIf="
+                updateEventForm.controls['title'].invalid &&
+                updateEventForm.controls['title'].touched
+            "
+        >
+            Название обязательно!
+        </div>
+        <div>
+            <label>Дата и время: </label>
+            <input
+                type="datetime-local"
+                name="date"
+                value="2024-05-12T09:30"
+                formControlName="date"
+                required
+            />
+        </div>
+        <div
+            class="warning"
+            *ngIf="
+                updateEventForm.controls['date'].invalid &&
+                updateEventForm.controls['date'].touched
+            "
+        >
+            Дата и время обязательно!
+        </div>
+        <div>
+            <label>Место: </label>
+            <input name="place" formControlName="place" required />
+        </div>
+        <div
+            class="warning"
+            *ngIf="
+                updateEventForm.controls['place'].invalid &&
+                updateEventForm.controls['place'].touched
+            "
+        >
+            Место обязательно!
+        </div>
+        <div formArrayName="participants">
+            <div
+                *ngFor="
+                    let participant of participantFormGroups.controls;
+                    let i = index
+                "
+                [formGroupName]="i"
+                class="participantContent"
+            >
+                <div>
+                    <div>
+                        <label>Участник: </label>
+                        <input name="name" formControlName="name" required />
+                    </div>
+
+                    <div>
+                        <label>Роль: </label>
+                        <input name="role" formControlName="role" />
+                    </div>
+                </div>
+                <div class="minus">
+                    <button
+                        class="buttonMinus"
+                        type="button"
+                        (click)="remuveParticipant(i)"
+                    >
+                        -
+                    </button>
+                </div>
+            </div>
+
+            <button type="button" (click)="addParticipant()">+</button>
+        </div>
+
+        <button type="submit" [disabled]="updateEventForm.invalid">
+            Сохранить!
+        </button>
+    </form>
+</div>
